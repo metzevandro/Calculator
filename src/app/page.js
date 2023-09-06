@@ -1,5 +1,6 @@
 "use client";
 
+import * as math from "mathjs"; // Importe o math.js
 import { useState } from "react";
 
 export default function Home() {
@@ -40,12 +41,11 @@ export default function Home() {
 
   const calculateResult = () => {
     try {
-      const calculatedResult = eval(
-        input.replace(/÷/g, "/").replace(/×/g, "*").replace(/,/, "."), // Para que no input apareça os operadores da forma de leitura e não programação
+      const calculatedResult = math.evaluate(
+        input.replace(/÷/g, "/").replace(/×/g, "*").replace(/,/g, ".")
       );
-      setResult(calculatedResult.toString().replace(/\./g, ","));
+      setResult(calculatedResult.toString().replace(".", ",")); // Exibe o resultado com vírgula
     } catch (error) {
-      // Caso de erro
       setResult("Erro");
     }
   };
@@ -66,7 +66,7 @@ export default function Home() {
               AC
             </li>
             <li className="cursor-pointer hover:bg-gray p-[20px] text-black font-bold flex items-center justify-center w-[25%]  bg-gray_light rounded-full">
-              DEL
+              C
             </li>
             <li
               className="cursor-pointer hover:bg-gray p-[20px] text-black font-bold flex items-center justify-center w-[25%]  bg-gray_light rounded-full"
