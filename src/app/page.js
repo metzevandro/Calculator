@@ -52,8 +52,10 @@ export default function Home() {
   return (
     <section className="flex items-center justify-center h-screen">
       <div className="flex flex-col rounded-[40px] items-center justify-center w-[350px] h-[600px] bg-black shadow-2xl">
-        <div className="bg-gray p-4 rounded-2xl flex text-4xl w-[85%] h-[15%] flex-row text-black justify-end items-end mb-[15px]">
-          {result || input}
+        <div className="bg-gray p-4 rounded-2xl flex text-4xl w-[300px] h-[15%] flex-row text-black justify-end items-end mb-[15px]">
+          <p className="input">
+            {result || input}
+          </p>
         </div>
         <div className="w-[85%] flex flex-col gap-5 text-white">
           <ul className="flex w-full h-full flex-row gap-[8px] text-lg">
@@ -64,7 +66,7 @@ export default function Home() {
               AC
             </li>
             <li className="cursor-pointer hover:bg-gray p-[20px] text-black font-bold flex items-center justify-center w-[25%]  bg-gray_light rounded-full">
-              +/-
+              DEL
             </li>
             <li
               className="cursor-pointer hover:bg-gray p-[20px] text-black font-bold flex items-center justify-center w-[25%]  bg-gray_light rounded-full"
