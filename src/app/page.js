@@ -23,6 +23,15 @@ export default function Calculator() {
     setInput((prevInput) => prevInput + operator);
   };
 
+  const handlePercentageClick = () => {
+    if (input === "") {
+      return;
+    }
+    // Divide o valor atual por 100 para calcular a porcentagem
+    const calculatedPercentage = parseFloat(input.replace(/,/g, ".")) / 100;
+    setInput(calculatedPercentage.toString().replace(/\./g, ",")); // Exibe o resultado da porcentagem no input
+  };
+
   const clearInput = () => {
     // Limpar o input
     setInput("");
@@ -34,7 +43,7 @@ export default function Calculator() {
       const calculatedResult = eval(
         input.replace(/÷/g, "/").replace(/×/g, "*").replace(/,/, "."), // Para que no input apareça os operadores da forma de leitura e não programação
       );
-      setResult(calculatedResult.toString());
+      setResult(calculatedResult.toString().replace(/\./g, ","));
     } catch (error) {
       // Caso de erro
       setResult("Erro");
@@ -57,7 +66,10 @@ export default function Calculator() {
             <li className="cursor-pointer hover:bg-gray p-[20px] text-black font-bold flex items-center justify-center w-[25%]  bg-gray_light rounded-full">
               +/-
             </li>
-            <li className="cursor-pointer hover:bg-gray p-[20px] text-black font-bold flex items-center justify-center w-[25%]  bg-gray_light rounded-full">
+            <li
+              className="cursor-pointer hover:bg-gray p-[20px] text-black font-bold flex items-center justify-center w-[25%]  bg-gray_light rounded-full"
+              onClick={() => handlePercentageClick("")}
+            >
               %
             </li>
             <li
