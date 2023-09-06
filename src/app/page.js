@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export default function Calculator() {
+export default function Home() {
   const [input, setInput] = useState("");
   const [result, setResult] = useState("");
 
@@ -50,7 +50,7 @@ export default function Calculator() {
     }
   };
   return (
-    <div className="flex items-center justify-center h-screen">
+    <section className="flex items-center justify-center h-screen">
       <div className="flex flex-col rounded-[40px] items-center justify-center w-[350px] h-[600px] bg-black shadow-2xl">
         <div className="flex text-4xl w-[85%] h-[15%] flex-row text-white justify-end items-end mb-[15px]">
           {result || input}
@@ -183,6 +183,6 @@ export default function Calculator() {
           </ul>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
