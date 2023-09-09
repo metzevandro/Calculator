@@ -39,6 +39,10 @@ export default function Home() {
     setResult("");
   };
 
+  const handleDelClick = () => {
+    setInput((prevInput) => prevInput.slice(0, -1)); // Remove o último caracter
+  };
+
   const calculateResult = () => {
     try {
       const calculatedResult = math.evaluate(
@@ -65,7 +69,9 @@ export default function Home() {
             >
               AC
             </li>
-            <li className="cursor-pointer hover:bg-gray p-[20px] text-black font-bold flex items-center justify-center w-[25%]  bg-gray_light rounded-full">
+            <li 
+            onClick={() => handleDelClick()}
+            className="cursor-pointer hover:bg-gray p-[20px] text-black font-bold flex items-center justify-center w-[25%]  bg-gray_light rounded-full">
               C
             </li>
             <li
